@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>니알바내알바</title>
+</head>
+
+<style>
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	  -ms-text-size-adjust: 100%;
+
+}
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fafafa;
+}
+
+.topnav {
+	width: 100%;
+	height: 84px;
+	background-color: #00b9a9;
+	box-shadow: 0px 1.5px 3.5px 0 rgba(0, 0, 0, 0.35);
+}
+
+.arrow {
+  margin-left: 51px;
+	margin-top: 25px;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.Store-Review {
+  margin-left: 36px;
+	margin-top: 28px;
+  width: 223px;
+  height: 34px;
+  font-family: MalgunGothic;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
+  color: #323232;
+}
+
+.logo1_2 {
+	margin-left: 783px;
+	margin-top: 29px;
+  width: 148px;
+  height: 27px;
+  object-fit: contain;
+}
+
+.Keyword_Search {
+  margin-left: 35px;
+  margin-top: 51.5px;
+  width: 600px;
+  height: 503px;
+  object-fit: contain;
+}
+
+.content-span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.step1 {
+  width: 58.5px;
+  height: 58.5px;
+  object-fit: contain;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;     /* make main axis horizontal (default setting) */
+  justify-content: center; /* center items horizontally, in this case */
+  align-items: center;
+}
+
+</style>
+
+<body>
+
+  <nav class="topnav" role="navigation">
+    <a onclick="history.back()">
+      <img src="/static/img/arrow.png"
+          srcset="/static/img/arrow@2x.png,
+                  /static/img/arrow@3x.png"
+          class="arrow">
+    </a>
+    <span class="Store-Review">지점 리뷰작성</span>
+    <a href = '/'>
+      <img src="/static/img/logo-shadow.png"
+          srcset="/static/img/logo-shadow@2x.png,
+                  /static/img/logo-shadow@3x.png"
+          class="logo1_2">
+  	</a>
+
+  </nav>
+
+  <div class="container">
+    <div class="map-span">
+      <img src="/static/img/keyword-search.png"
+         srcset="/static/img/keyword-search@2x.png 640w,
+                 /static/img/keyword-search@3x.png 1366w"
+         class="Keyword_Search">
+    </div>
+
+    <div class="contents-span">
+      <div>
+        <img src="/static/img/step-1.png"
+           srcset="/static/img/step-1@2x.png,
+                   /static/img/step-1@3x.png"
+           class="Step1">
+      </div>
+      <div>
+        <img src="/static/img/step-1.png"
+           srcset="/static/img/step-1@2x.png,
+                   /static/img/step-1@3x.png"
+           class="Step1">
+      </div>
+      <div>
+        <img src="/static/img/step-1.png"
+           srcset="/static/img/step-1@2x.png,
+                   /static/img/step-1@3x.png"
+           class="Step1">
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>

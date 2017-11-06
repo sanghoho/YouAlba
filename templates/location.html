@@ -1,0 +1,460 @@
+<html>
+<head>
+  <meta charset= 'UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>니알바 내알바</title>
+	<link rel="icon" type="image/png" href="/static/img/logo1_1.png" />
+  <!-- <link rel="stylesheet" type="text/css" href="/static/style2.css"> -->
+</head>
+
+<style>
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	  -ms-text-size-adjust: 100%;
+
+}
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #f5f5f5;
+}
+
+.topnav {
+	width: 100%;
+	height: 84px;
+	background-color: #fafafa;
+	box-shadow: 0px 1.5px 3.5px 0 rgba(0, 0, 0, 0.35);
+}
+
+.logo1_2 {
+	margin-left: 49px;
+	margin-top: 29px;
+  width: 148px;
+  height: 27px;
+  object-fit: contain;
+}
+
+.left-box {
+  float: left;
+  width: 50%;
+  margin-top:10px;
+  margin-bottom: 15px;
+}
+.right-box {
+  float: right;
+  width: 50%;
+  margin-top:40px;
+  margin-bottom: 15px;
+}
+.Search-Bar {
+  position: absolute;
+  z-index: 1;
+  width: 500px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+  border : 3.5px solid #7accc8;
+  outline:0;
+
+}
+.Search-Mark {
+  position: relative;
+  z-index: 2;
+  width: 40px;
+  height:40px;
+  object-fit: contain;
+  margin-left:450px;
+  margin-top:5px;
+}
+.map {
+  margin-top : 20px;
+  width: 600px;
+  height: 500px;
+  object-fit: contain;
+  background-color: #fafafa;
+  box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.85);
+  border: solid 4px #00b9a9;
+}
+#Jang-An {
+  position : absolute;
+  margin-top : 10px;
+  margin-left:180px;
+  width: 189px;
+  height:210px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+#Gwon-Seon {
+  position : absolute;
+  margin-top : 230px;
+  margin-left: 50px;
+  width: 281px;
+  height: 254px;
+  object-fit: contain;
+  z-index : 3;
+}
+#Pal-Dal {
+  position : relative;
+  margin-top: 240px;
+  margin-left: 230px;
+  width: 174px;
+  height: 112px;
+  object-fit: contain;
+  z-index : 4;
+}
+#Yeong-Tong {
+  position : relative;
+  margin-top : -200px;
+  margin-left: 420px;
+  width: 138px;
+  height: 287px;
+  object-fit: contain;
+  z-index : 5;
+}
+.gu-Btn {cursor: pointer;}
+.gu-Btn:hover { outline: #00b9a9 solid 4px;}
+
+.ho  {
+  margin-top : 50px;
+  width: 493px;
+  height: 94px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  border: solid 3.2px #ff6b6b;
+}
+.GS25 {
+  margin-top : 15px;
+  width: 400px;
+  height: 23px;
+  font-family: MalgunGothic;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+  color: #000000;
+}
+.score {
+  width: 150px;
+  height: 23px;
+  font-family: MalgunGothic;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #000000;
+  margin-left:40px;
+  margin-top:10px;
+}
+.review  {
+  width: 130px;
+  height: 30px;
+  font-family: MalgunGothic;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #000000;
+  margin-left : 350px;
+  margin-bottom:100px;
+}
+.Add-Review {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  top: 500;
+  right : 90;
+  position : fixed;
+}
+
+.number {
+  width: 334px;
+  height: 35px;
+  font-family: MalgunGothic;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  color: #010101;
+  margin-left : 700px;
+}
+.Under-Line {
+  width: 350px;
+  height: 5px;
+  object-fit: contain;
+  background-color: #7accc8;
+  margin-top:1px;
+}
+
+.scrollbar
+{
+/*margin-top:60px;*/
+margin-left: 30px;
+float: left;
+height: 480px;
+overflow-y: scroll;
+margin-bottom: 10px;
+}
+
+.force-overflow{
+min-height: 400px;
+width : 520px;
+}
+
+#style-8::-webkit-scrollbar-track
+{
+border: 3px solid #00b9a9;
+background-color: #ffffff;
+}
+
+#style-8::-webkit-scrollbar
+{
+background-color: #00b9a9;
+width: 30px;
+height:20px;
+}
+
+#style-8::-webkit-scrollbar-thumb
+{
+  height:20px;
+background-color: #00b9a9;
+}
+
+
+</style>
+
+<body>
+  <nav class="topnav" role="navigation">
+		<a href = '/'>
+			<img src="/static/img/logo-1-2.png"
+                srcset="/static/img/logo-1-2@2x.png,
+                      /static/img/logo-1-2@3x.png"
+                class="logo1_2">
+		</a>
+  </nav>
+<div class='left-box'>
+
+  <input src="/static/img/search-bar.png"
+     class="Search-Bar">
+  <img src="/static/img/search-mark.jpg"
+     class="Search-Mark">
+     {% if gu %}
+
+     <p onclick="history.back();">
+
+       {{gu}}
+
+     </p>
+    <div id="map" class="map"></div>
+    <!-- height: 100%; -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b43849dc6efc25cb93bd8c46811966f"></script>
+    <script>
+      var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+
+      var options = { //지도를 생성할 때 필요한 기본 옵션
+        center: new daum.maps.LatLng(37.3042402, 127.047337), //지도의 중심좌표.
+        level: 8 //지도의 레벨(확대, 축소 정도)
+      };
+
+      var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+      </script>
+
+    {% else %}
+    <div src="/static/img/map.png" class="map">
+      <div>
+        <img src="/static/img/jang-an.png"
+         srcset="/static/img/jang-an@2x.png,
+                 /static/img/jang-an@3x.png"
+         id="Jang-An"
+         class="gu-Btn"
+         onclick="addOrUpdateUrlParam('gu', '장안구');"
+         onmouseover="bigImg(tool);"
+         onmouseout="normalImg(jang);">
+        <div id="jang" style="visibility:hidden; z-index:10;">장안구</div>
+      </div>
+      <div>
+        <img src="/static/img/gwon-seon.png"
+            srcset="/static/img/gwon-seon@2x.png,
+                  /static/img/gwon-seon@3x.png"
+            id="Gwon-Seon"
+            class="gu-Btn"
+            onclick="addOrUpdateUrlParam('gu', '권선구');"
+            onmouseover="bigImg(gwon);"
+            onmouseout="normalImg(gwon);">
+          <div id="gwon" style="visibility:hidden; z-index:10;">권선구</div>
+      </div>
+      <div>
+        <img src="/static/img/pal-dal.png"
+             srcset="/static/img/pal-dal@2x.png,
+                     /static/img/pal-dal@3x.png"
+             id="Pal-Dal"
+             class="gu-Btn"
+             onclick="addOrUpdateUrlParam('gu', '팔달구');"
+             onmouseover="bigImg(pal);"
+             onmouseout="normalImg(pal);">
+         <div id="pal" style="visibility:hidden; z-index:10;">팔달구</div>
+      </div>
+      <div>
+        <img src="/static/img/yeong-tong.png"
+            srcset="/static/img/yeong-tong@2x.png,
+                    /static/img/yeong-tong@3x.png"
+            id="Yeong-Tong"
+            class="gu-Btn"
+            onclick="addOrUpdateUrlParam('gu', '영통구');"
+            onmouseover="bigImg(yeong);"
+            onmouseout="normalImg(yeong);">
+        <div id="yeong" style="visibility:hidden; z-index:10;">영통구</div>
+      </div>
+    {% endif %}
+   </div>
+   <script>
+function bigImg(x) {
+    x.style.visibility = "visible";
+}
+
+function normalImg(x) {
+    x.style.visibility = "hidden";
+}
+
+   function addOrUpdateUrlParam(name, value)
+{
+ var href = window.location.href;
+ var regex = new RegExp("[&\\?]" + name + "=");
+ if(regex.test(href))
+ {
+   regex = new RegExp("([&\\?])" + name + "=\\d+");
+   window.location.href = href.replace(regex, "$1" + name + "=" + value);
+   // location.reload(true);
+ }
+ else
+ {
+   if(href.indexOf("?") > -1)
+     window.location.href = href + "&" + name + "=" + value;
+   else
+     window.location.href = href + "?" + name + "=" + value;
+ }
+}
+   </script>
+
+ </div>
+
+
+   <div class='right-box'>
+     <div class="scrollbar" id="style-8">
+       <div class="force-overflow">
+        {% for post in posts %}
+        {% set len = post.review|length %}
+        {% set avg_Star = post.review|sum(attribute='Star')/len %}
+         <article class = "ho">
+
+               <div class = "GS25">{{post.name}}</div>
+               <div class = "score">총 평점 : {{ avg_Star|round(2, 'floor')}}</div>
+               <div class = "review">리뷰개수 : {{len}}</div>
+         </article>
+           {% endfor %}
+       </div>
+     </div>
+  </div>
+
+    <div class = "number">
+      1 2 3 4 5 6 7 8 9
+      <img src="/static/img/under-line.png"
+       srcset="/static/img/under-line@2x.png,
+               /static/img/under-line@3x.png"
+       class="Under-Line">
+    </div>
+    <a href="/store/add">
+       <img src="/static/img/add-review.png"
+            srcset="/static/img/add-review@2x.png,
+                  /static/img/add-review@3x.png"
+            class="Add-Review">
+    </a>
+
+</body>
+
+<script>
+
+// 마커를 표시할 위치입니다
+
+//var positions = [];
+//
+
+//MongoClient client = new MongoClient("localhost",27017); //with default server and port adress
+//DB db = client.getDB( "nrnr_test2" );
+//DBObject allQuery = new BasicDBObject();
+//DBCollection collection = db.getCollection("place_info");
+//DBCursor curs = collection.find();
+//Iterator<DBObject> fields = curs.iterator();
+//
+//while(fields.hasNext()){ //
+//   BasicDBList geoList = (BasicDBList) fields.next().get("GeoLevels");
+//   BasicDBObject object = (BasicDBObject) geoList.get(0); // this should return {"5": "Continent_Name"}
+//   Object value = object.get("5); // value should contain "Continent_Name"
+
+//
+var positions = [
+{% for post in posts.rewind() %}
+{
+    name: '{{post.name}}',
+    address: '{{post.Address}}',
+    latlng: new daum.maps.LatLng( {{ post.Latitude }}, {{ post.Longitude }} )
+},
+{% endfor %}
+];
+
+// 마커 이미지의 이미지 주소입니다
+
+
+for (var i = 0; i < positions.length; i ++) {
+
+(function(position) {
+
+    // 마커 이미지의 이미지 크기 입니다
+//        var imageSize = new daum.maps.Size(24, 35);
+
+//        var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; // if
+
+    // 마커 이미지를 생성합니다
+//        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+    // 마커를 생성합니다
+    var marker = new daum.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: position.latlng, // 마커를 표시할 위치
+        title : position.name, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+//            image : markerImage // 마커 이미지
+    });
+
+
+        var infowindow = new daum.maps.InfoWindow({
+            content : '<div class=shop_info><div class=shop_name>'+position.name+'</div><div class=shop_ratings>주소:'+position.address+'</div></div>'
+        });
+
+
+            // daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+            //     var latlng = mouseEvent.latLng;
+            //     alert('click! ' + latlng.toString());
+            // });
+
+            // 마커에 마우스오버 이벤트를 등록합니다
+            daum.maps.event.addListener(marker, 'mouseover', function() {
+              // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+                infowindow.open(map, marker);
+            });
+
+        // 마커에 마우스아웃 이벤트를 등록합니다
+        daum.maps.event.addListener(marker, 'mouseout', function() {
+            // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+            infowindow.close();
+        });
+
+})(positions[i]);
+
+
+
+}
+
+
+
+</script>
+
+
+</html>

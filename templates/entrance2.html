@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>니알바 내알바</title>
+	<link rel="icon" type="image/png" href="/static/img/logo1_1.png" />
+</head>
+
+<style>
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	  -ms-text-size-adjust: 100%;
+
+}
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #0b9a9a;
+}
+
+.topnav {
+	width: 100%;
+	height: 84px;
+	background-color: #fafafa;
+	box-shadow: 0px 1.5px 3.5px 0 rgba(0, 0, 0, 0.35);
+}
+
+.logo1_2 {
+	margin-left: 49px;
+	margin-top: 29px;
+  width: 148px;
+  height: 27px;
+  object-fit: contain;
+}
+
+.intro-header{
+	{% if session['user'] %}
+	margin-top: 91px;
+	{% else %}
+	margin-top: 126px;
+	{% endif %}
+	font-family: MalgunGothic;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	color: #fafafa;
+	text-shadow: 0px 1.5px 3.5px rgba(0, 0, 0, 0.35);
+
+}
+
+.intro-divider  {
+  width: 598px;
+  height: 1px;
+  background-color: #fafafa;
+  box-shadow: 0px 1.5px 3.5px 0 rgba(0, 0, 0, 0.35);
+  <!--border: solid 5px #ffffff;-->
+}
+
+.login-button {
+	display: flex;
+	{% if session['user'] %}
+  flex-direction: row;     /* make main axis horizontal (default setting) */
+	{% else %}
+	flex-direction: column;
+	{% endif %}
+  justify-content: center; /* center items horizontally, in this case */
+  align-items: center;
+}
+
+.Facebook-Login {
+  <!--width: 250px;-->
+  <!--height: 42.5px;-->
+  <!--object-fit: contain;-->
+
+}
+
+.Google-Login {
+	<!--margin-top:50px;-->
+
+  <!--width: 245.5px;-->
+  <!--height: 42.5px;-->
+  <!--object-fit: contain;-->
+
+
+}
+
+.Location {
+  width: 338px;
+  height: 329px;
+  object-fit: contain;
+}
+
+.Job {
+  width: 338px;
+  height: 329px;
+  object-fit: contain;
+}
+
+.Law {
+  width: 338px;
+  height: 329px;
+  object-fit: contain;
+}
+
+
+
+</style>
+
+<body>
+
+<script>
+	console.log("Start");
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // response 객체는 현재 로그인 상태를 나타내는 정보를 보여준다.
+    // 앱에서 현재의 로그인 상태에 따라 동작하면 된다.
+    // FB.getLoginStatus().의 레퍼런스에서 더 자세한 내용이 참조 가능하다.
+    if (response.status === 'connected') {
+      // 페이스북을 통해서 로그인이 되어있다.
+      testAPI();
+      FB.logout();
+      console.log("로그아웃됐겠지")
+    } else if (response.status === 'not_authorized') {
+      // 페이스북에는 로그인 했으나, 앱에는 로그인이 되어있지 않다.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // 페이스북에 로그인이 되어있지 않다. 따라서, 앱에 로그인이 되어있는지 여부가 불확실하다.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // 이 함수는 누군가가 로그인 버튼에 대한 처리가 끝났을 때 호출된다.
+  // onlogin 핸들러를 아래와 같이 첨부하면 된다.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1582538401782077',
+    cookie     : false,  // 쿠키가 세션을 참조할 수 있도록 허용
+    xfbml      : true,  // 소셜 플러그인이 있으면 처리
+    version    : 'v2.10' // 버전 2.1 사용
+  });
+
+  // 자바스크립트 SDK를 초기화 했으니, FB.getLoginStatus()를 호출한다.
+  //.이 함수는 이 페이지의 사용자가 현재 로그인 되어있는 상태 3가지 중 하나를 콜백에 리턴한다.
+  // 그 3가지 상태는 아래와 같다.
+  // 1. 앱과 페이스북에 로그인 되어있다. ('connected')
+  // 2. 페이스북에 로그인되어있으나, 앱에는 로그인이 되어있지 않다. ('not_authorized')
+  // 3. 페이스북에 로그인이 되어있지 않아서 앱에 로그인이 되었는지 불확실하다.
+  //
+  // 위에서 구현한 콜백 함수는 이 3가지를 다루도록 되어있다.
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+
+  // SDK를 비동기적으로 호출
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // 로그인이 성공한 다음에는 간단한 그래프API를 호출한다.
+  // 이 호출은 statusChangeCallback()에서 이루어진다.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name,email,gender,birthday'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + response.email + response.birthday + '!';
+      document.getElementById('user').value = response.name;
+      <!--document.getElementById('e').innerHTML = response.email;-->
+      document.login.submit();
+    });
+  }
+
+	function goFace() {
+		//do the login
+	    console.log("Click_Event");
+	    FB.login(statusChangeCallback, {scope: 'email,public_profile', return_scopes: true});
+	}
+
+
+</script>
+
+
+	<nav class="topnav" role="navigation">
+		<a href = '/'>
+			<img src="/static/img/logo-1-2.png"
+                srcset="/static/img/logo-1-2@2x.png,
+                        /static/img/logo-1-2@3x.png"
+                class="logo1_2">
+		</a>
+
+		{% if session['user'] %}
+          <h1 class="CongMsg">Hello {{session['user']}}!</h1>
+			<a href="/logout">로그아웃</a>
+
+		{% endif %}
+    </nav>
+
+	<div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1><font color="#00b9a9">니</font>알바<font color="#ff5c5c"> 내</font>알바</h1>
+                        <h3>지금 여러분의 <font color="#00b9a9">알</font><font color="#ff5c5c">바</font> 경험을 공유해 보세요</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <!--</ul>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+	<br style="height:50px;">
+	{% if session['user'] %}
+	<div class="login-button">
+		<a href="/store?pageNum=0">
+			<img src="/static/img/location.png"
+		       srcset="/static/img/location@2x.png,
+		               /static/img/location@3x.png"
+		       class="Location">
+		</a>
+		<a>
+			<img src="/static/img/job.png"
+		      srcset="/static/img/job@2x.png,
+		              /static/img/job@3x.png"
+		      class="Job">
+		</a>
+		<a>
+			<img src="/static/img/law.png"
+		       srcset="/static/img/law@2x.png,
+		               /static/img/law@3x.png"
+		       class="Law">
+		</a>
+	</div>
+	{% else %}
+	<div class="login-button">
+
+		<div class="Facebook-Login" href = '#' onclick="goFace();">
+
+			<img src="/static/img/facebook-login.png"
+		     srcset="/static/img/facebook-login@2x.png,
+		             /static/img/facebook-login@3x.png">
+		</div>
+		<div class="Google-Login" href="/">
+			<img src="/static/img/google-login.png"
+				     srcset="/static/img/google-login@2x.png,
+				             /static/img/google-login@3x.png">
+		</div>
+	</div>
+	{% endif %}
+
+<div id="status">
+</div>
+
+
+	<form name="login" action="/login" method="post">
+		<input type="hidden" name="_id" value = "">
+		<p>
+			<input type="hidden" id="user" name="user" value="" placeholder="유저"></input>
+		</p>
+		<p>
+			<textarea style="display:none;" id="e" name="content"></textarea>
+		</p>
+		<p>
+			<input type="submit" value="수정" style="display:none;"></input>
+		</p>
+    </form>
+
+
+
+
+
+</body>
+</html>

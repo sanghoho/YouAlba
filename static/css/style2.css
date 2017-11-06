@@ -1,0 +1,114 @@
+.left-box {
+  float: left;
+  width: 50%;
+}
+.right-box {
+  float: right;
+  width: 50%;
+}
+
+.Search-Bar {
+  width: 500px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: #fafafa;
+  border: solid 4px #00b9a9;
+  border: solid 4px var(--turquoise);
+}
+
+.Search-Mark {
+  width: 43px;
+  height:43px;
+  object-fit: contain;
+}
+
+.map {
+  width: 600px;
+  height: 500px;
+  object-fit: contain;
+  background-color: #fafafa;
+  box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.85);
+  border: solid 5px #00b9a9;
+  border: solid 5px var(--turquoise);
+}
+
+.Jang-An {
+  position : absolute;
+  margin-top : 10px;
+  margin-left:180px;
+  width: 189px;
+  height:210px;
+  object-fit: contain;
+  z-index: 1;
+
+}
+
+.Gwon-Seon {
+  position : absolute;
+  margin-top : 230px;
+  margin-left: 50px;
+  width: 281px;
+  height: 254px;
+  object-fit: contain;
+  z-index : 2;
+}
+
+.Pal-Dal {
+  position : relative;
+  margin-top: 240px;
+  margin-left: 230px;
+  width: 174px;
+  height: 112px;
+  object-fit: contain;
+  z-index : 3;
+}
+.Yeong-Tong {
+  position : relative;
+  margin-top : -200px;
+  margin-left: 420px;
+  width: 138px;
+  height: 287px;
+  object-fit: contain;
+  z-index : 4;
+}
+.ho  {
+  margin-top : 50px;
+  width: 493px;
+  height: 94px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  border: solid 3.2px #ff6b6b;
+}
+.GS25 {
+  margin-top : 15px;
+  width: 200px;
+  height: 23px;
+  font-family: MalgunGothic;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #000000;
+}
+.score {
+  width: 120px;
+  height: 23px;
+  font-family: MalgunGothic;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #000000;
+  margin-left:40px;
+  margin-top:10px;
+}
+.review  {
+  width: 130px;
+  height: 30px;
+  font-family: MalgunGothic;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #000000;
+  margin-left : 350px;
+  margin-bottom:100px;
+}

@@ -1,0 +1,628 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>니알 내알</title>
+
+    <script src="/static/common.css"></script>
+    <script src="/static/jquery.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/static/css/clean-blog.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .topnav {
+      font-size: 15px;
+      font-weight: bold;
+  }
+/*서치박스 배열*/
+  form #search{
+      display: inline-block;
+      margin: 10px 100px;
+      position: relative;
+  }
+
+  .shop_info {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  #search {
+      border: 4px solid #999;
+      cursor: pointer;
+      height: 10px;
+      padding: 8px;
+      position: relative;
+      width: 10px;
+
+      -moz-border-radius: 15px;
+      -webkit-border-radius: 15px;
+      border-radius: 15px;
+
+      -moz-appearance: none;
+      -webkit-appearance: none;
+  }
+
+  #search:hover {
+      border-color: #00b9a9;
+  }
+
+  #search:focus {
+      border-color: #00b9a9;
+      outline: none;
+      width: 150px;
+
+      -moz-transition: all .2s ease-in-out;
+      -webkit-transition: all .2s ease-in-out;
+  }
+
+  #search.searching {
+      margin-left: 80px;
+      width: 10px;
+
+      -moz-transition: all .2s ease-in-out;
+      -webkit-transition: all .2s ease-in-out;
+  }
+
+  #search + p {
+      background: #999;
+      content: '';
+      cursor: pointer;
+      display: block;
+      height: 10px;
+      position: absolute;
+      right: 10px;
+      top: -8px;
+      width: 4px;
+
+      -moz-border-radius: 1px;
+      -webkit-border-radius: 1px;
+      border-radius: 1px;
+
+      -moz-transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+      -moz-transform-origin: center 20px;
+      -webkit-transform-origin: center 20px;
+  }
+
+  #search + p:hover,
+  #search:hover + p,
+  #search:focus + p {
+      background: #00b9a9;
+  }
+
+  #search.searching + p {
+      -moz-animation: rotateHandle .6s linear 6;
+      -webkit-animation: rotateHandle .6s linear 6;
+  }
+
+  @-webkit-keyframes rotateHandle {
+      from { -webkit-transform: rotate(135deg); }
+      to { -webkit-transform: rotate(-225deg); }
+  }
+
+  @-moz-keyframes rotateHandle {
+      from { -moz-transform: rotate(135deg); }
+      to { -moz-transform: rotate(-225deg); }
+  }
+
+
+
+  #abc {
+  width:100%;
+  height:100%;
+  opacity:.95;
+  top:0;
+  left:0;
+  display:none;
+  position:fixed;
+  background-color:#313131;
+  overflow:auto;
+  }
+  button#close {
+  position:absolute;
+  right:-10px;
+  top:-10px;
+  cursor:pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 30px;
+  border: none;
+  background: none;
+  }
+  div#popupContact {
+  position:absolute;
+  left:12%;
+  top:17%;
+  display: table-cell;
+  vertical-align: middle;
+  overflow:auto;
+  }
+
+  #popupContact form {
+  width:860px;
+  padding:10px 50px;
+  border:2px solid gray;
+  border-radius:10px;
+  background-color:#FEFEFE;
+  }
+
+  #popupContact p {
+  margin-top:30px
+  }
+  #popupContact h3 {
+  background-color:#ff5c5c;
+  padding:20px 35px;
+  margin:-10px -50px;
+  text-align:center;
+  border-radius:10px 10px 0 0;
+  color: #FEFEFE;
+  }
+  hr {
+  color: #F0EDE9;
+  margin:10px -50px;
+  border:0;
+  border-top:1px solid #ccc
+  }
+  h5 {
+    color:#ff5c5c;
+  }
+
+  #submit {
+  text-decoration:none;
+  width:100%;
+  text-align:center;
+  display:block;
+  background-color:#ff5c5c;
+  color:#fff;
+  border:1px solid #ff5c5c;
+  padding:10px 0;
+  font-size:12px;
+  cursor:pointer;
+  border-radius:5px
+  }
+  #submit span {
+  color:red;
+  font-weight:700
+  }
+  #submit button {
+  width:10%;
+  height:45px;
+  border-radius:3px;
+  background-color:#cd853f;
+  color:#fff;
+  font-size:15px;
+  cursor:pointer
+  }
+
+  </style>
+
+    <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="/"><font color="#00b9a9">니</font>알바<font color="#ff5c5c">내</font>알바</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                  <li>
+                    <form id="searchbox">
+                        <input id="search" type="search" name="search" />
+                    </form>
+                  </li>
+
+                  <li>
+                    <h5 style="margin-bottom:18px;">
+                      {% for message in get_flashed_messages() %}
+                      {{ message }}
+                      {% endfor %}
+                    </h5>
+                  </li>
+
+                  <li>
+                    <a id="popup" onclick="div_show()">후기작성</a>
+
+                    <div id="abc">
+                    <!-- Popup Div Starts Here -->
+                    <div id="popupContact">
+                    <!-- Contact Us Form -->
+                    <form class="form-horizontal", action="/" id="form" method="post" name="form">
+                      <button id="close" type="button" class="btn btn-default" aria-label="Right Align" onclick ="div_hide()">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="True"></span>
+                      </button>
+
+                    <h3>내알바 리뷰 작성</h3>
+                    <hr>
+
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">매장이름</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control input-sm" id="name" name = "매장이름" placeholder="ex) 스타벅스 수원역점">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">근무기간</label>
+                            <div class="col-md-10">
+                              <label class = "radio-inline" style="margin-left:10px;"><input type="radio" name="근무기간" value="~1개월">~1개월</label>
+                              <label class = "radio-inline"><input type="radio" name="근무기간" value="1~3개월">1~3개월</label>
+                              <label class = "radio-inline"><input type="radio" name="근무기간" value="3~6개월">3~6개월</label>
+                              <label class = "radio-inline"><input type="radio" name="근무기간" value="6~12개월">6~12개월</label>
+                              <label class = "radio-inline"><input type="radio" name="근무기간" value="12개월~">12개월~</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">시급</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control input-sm" name="시급" id="name" placeholder="ex) 6,030원">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">급여에서 공제되는 부분</label>
+                            <div class="col-md-10">
+                              <label class = "checkbox-inline" style="margin-left:10px;"><input type="checkbox" name="공제" value="4대 보험">4대보험</label>
+                              <label class = "checkbox-inline"><input type="checkbox" name="공제" value="식사비용">식사비용</label>
+                              <label class = "checkbox-inline"><input type="checkbox" name="공제" value="해당사항 없음">해당사항 없음</label>
+                              <label class = "checkbox-inline"><input type="checkbox" name="공제" value="기타">기타</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">업무의 어려움</label>
+                            <div class="col-md-10">
+                              <label class = "radio-inline" style="margin-left:10px;"><input type="radio" name="어려움" value=1>힘든편이다&nbsp;&nbsp;--</label>
+                              <label class = "radio-inline"><input type="radio" name="어려움" value=2>--</label>
+                              <label class = "radio-inline"><input type="radio" name="어려움" value=3>--</label>
+                              <label class = "radio-inline"><input type="radio" name="어려움" value=4>--</label>
+                              <label class = "radio-inline"><input type="radio" name="어려움" value=5>편한편이다</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">업무의 분위기</label>
+                            <div class="col-md-10">
+                              <label class = "radio-inline" style="margin-left:10px;"><input type="radio" name="분위기" value=1>분위기가 나쁜 편이다&nbsp;&nbsp;--</label>
+                              <label class = "radio-inline"><input type="radio" name="분위기" value=2>--</label>
+                              <label class = "radio-inline"><input type="radio" name="분위기" value=3>--</label>
+                              <label class = "radio-inline"><input type="radio" name="분위기" value=4>--</label>
+                              <label class = "radio-inline"><input type="radio" name="분위기" value=5>분위기가 좋은 편이다</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">근로계약 준수 여부</label>
+                            <div class="col-md-10">
+                              <label class = "radio-inline" style="margin-left:10px;"><input type="radio" name="준수" value=1>업체가 준수하지 않는 편이다&nbsp;&nbsp;--</label>
+                              <label class = "radio-inline"><input type="radio" name="준수" value=2>--</label>
+                              <label class = "radio-inline"><input type="radio" name="준수" value=3>--</label>
+                              <label class = "radio-inline"><input type="radio" name="준수" value=4>--</label>
+                              <label class = "radio-inline"><input type="radio" name="준수" value=5>업체가 준수하는 편이다</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">이 매장의 장점</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control input-sm" name="장점" id="name" placeholder="ex) 적은 손님, 친절한 사장님, 또래들과 일해 즐겁다..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">이 매장의 단점</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control input-sm" name="단점" id="name"  placeholder="ex) 진상 손님이 많다, 청소를 자주한다, 심심하다..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">이 알바를 추천하나요?</label>
+                            <div class="col-md-10">
+                              <label class = "radio-inline" style="margin-left:10px;"><input type="radio" name="추천" value=True>예</label>
+                              <label class = "radio-inline"><input type="radio" name="추천" value=False>아니오</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label text-right">이 알바의 총 평점</label>
+                            <div class="col-md-10">
+                              <label class = "radio-inline" style="margin-left:10px;"><input type="radio" name="총 평점" value=1>1</label>
+                              <label class = "radio-inline"><input type="radio" name="총 평점" value=2>2</label>
+                              <label class = "radio-inline"><input type="radio" name="총 평점" value=3>3</label>
+                              <label class = "radio-inline"><input type="radio" name="총 평점" value=4>4</label>
+                              <label class = "radio-inline"><input type="radio" name="총 평점" value=5>5</label>
+                            </div>
+                        </div>
+
+<!--
+                    <span class="form-group">
+                      <label for="name">매장 이름</label>
+                      <input type="text" class="form-control" id="name" placeholder="ex) 스타벅스 수원역점">
+                    </span>
+
+
+
+
+                    <input id="pay" name="pay" placeholder="시급" type="text">
+                    <textarea id="adv" name="adv" placeholder="이 매장의 장점"></textarea>
+                    <textarea id="disadv" name="disadv" placeholder="이 매장의 단점"></textarea>
+                    -->
+                    <a href="javascript:%20check_empty()" id="submit">작성 완료</a>
+                    </form>
+                    </div>
+                  </div>
+                  </li>
+                    <!-- Popup Div Ends Here -->
+                  <li>
+                      <a href="/profile">회원정보</a>
+                  </li>
+                  <li>
+                      <a href="/logout">로그아웃</a>
+                  </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+
+
+    // Validating Empty Field
+    function check_empty() {
+        // document.forms["form"]['매장이름'].value == "" || document.forms["form"]['근무기간'].value == "" || document.forms["form"]['시급'].value == "" || !validateForm("공제") || document.forms["form"]['어려움'].value == "" || document.forms["form"]['분위기'].value == "" || document.forms["form"]['준수'].value == "" || document.forms["form"]['장점'].value == "" || document.forms["form"]['단점'].value == "" || document.forms["form"]['추천'].value == "" || document.forms["form"]['총평점'].value == ""
+        if (document.forms["form"]['매장이름'].value == "" || document.forms["form"]['근무기간'].value == "" || document.forms["form"]['시급'].value == "" || !validateForm("공제") || document.forms["form"]['어려움'].value == "" || document.forms["form"]['분위기'].value == "" || document.forms["form"]['준수'].value == "" || document.forms["form"]['장점'].value == "" || document.forms["form"]['단점'].value == "" || document.forms["form"]['추천'].value == "" || document.forms["form"]['총 평점'].value == "") {
+            alert("Fill All Fields !");
+        } else {
+            document.getElementById('form').submit();
+            alert("Form Submitted Successfully...");
+        }
+
+    }
+     // ValidateForm 체크박스
+    function validateForm() {
+        var c=document.getElementsByTagName('input');
+        for (var i = 0; i<c.length; i++){
+        if (c[i].type=='checkbox') {
+            if (c[i].checked){return true}
+        }
+    }
+    return false;
+}
+    //Function To Display Popup
+    function div_show() {
+    document.getElementById('abc').style.display = "block";
+    }
+    //Function to Hide Popup
+    function div_hide(){
+    document.getElementById('abc').style.display = "none";
+    }
+    </script>
+
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+
+
+    <header class="intro-header">
+      <div id="map" style="width:100%;height:400px;"></div>
+      <!-- height: 100%; -->
+      <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=419d02980ebdaf544a314fb9a6566295"></script>
+      <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+          center: new daum.maps.LatLng(37.3042402, 127.047337), //지도의 중심좌표.
+          level: 8 //지도의 레벨(확대, 축소 정도)
+        };
+
+        var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+      </script>
+    </header>
+
+    // <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% for post in posts %}
+                <div class="post-preview">
+                    <a href="/post/{{post.name}}">
+                        <h3 class="post-title" style="color: #00b9a9;">
+                            {{post.name}}
+                        </h3>
+                        <h4 class="post-subtitle">
+                            총 평점:{{post.Star}}
+                        </h4>
+                    </a>
+                    <!--<p class="post-meta">최근의 채용 공고 <a href="#">Start Bootstrap</a> 12일 전</p>-->
+                </div>
+                <hr>
+                {% endfor %}
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="/">더 많은 리뷰수 &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<!--search 다시 제자리로 가게 하는 js-->
+    <script>
+    var form = $('form'),
+    search = $('#search');
+
+    form.submit(function(e) {
+        e.preventDefault();
+
+        search.addClass('searching').val('');
+
+        setTimeout(function() {
+            search.removeClass('searching');
+        }, 3600);
+    });
+
+    </script>
+
+<!-- 마커에 마우스이벤트 생성하기 -->
+
+    <script>
+// 마커를 표시할 위치입니다
+
+//var positions = [];
+//
+
+//MongoClient client = new MongoClient("localhost",27017); //with default server and port adress
+//DB db = client.getDB( "nrnr_test2" );
+//DBObject allQuery = new BasicDBObject();
+//DBCollection collection = db.getCollection("place_info");
+//DBCursor curs = collection.find();
+//Iterator<DBObject> fields = curs.iterator();
+//
+//while(fields.hasNext()){ //
+//   BasicDBList geoList = (BasicDBList) fields.next().get("GeoLevels");
+//   BasicDBObject object = (BasicDBObject) geoList.get(0); // this should return {"5": "Continent_Name"}
+//   Object value = object.get("5); // value should contain "Continent_Name"
+
+//
+var positions = [
+{% for post in posts.rewind() %}
+    {
+        name: '{{post.name}}',
+                star: '{{post.Star}}',
+        latlng: new daum.maps.LatLng( {{ post.Latitude }}, {{ post.Longitude }} )
+    },
+{% endfor %}
+];
+
+// 마커 이미지의 이미지 주소입니다
+
+
+for (var i = 0; i < positions.length; i ++) {
+
+    (function(position) {
+
+        // 마커 이미지의 이미지 크기 입니다
+//        var imageSize = new daum.maps.Size(24, 35);
+
+//        var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; // if
+
+        // 마커 이미지를 생성합니다
+//        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+        // 마커를 생성합니다
+        var marker = new daum.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: position.latlng, // 마커를 표시할 위치
+            title : position.name, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+//            image : markerImage // 마커 이미지
+        });
+
+
+            var infowindow = new daum.maps.InfoWindow({
+                content : '<div class=shop_info><div class=shop_name>'+position.name+'</div><div class=shop_ratings>평점:'+position.star+'</div><div class=shop_reviews>리뷰수: 14</div></div>'
+            });
+
+
+                daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+                    var latlng = mouseEvent.latLng;
+                    alert('click! ' + latlng.toString());
+                });
+
+                // 마커에 마우스오버 이벤트를 등록합니다
+                daum.maps.event.addListener(marker, 'mouseover', function() {
+                  // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+                    infowindow.open(map, marker);
+                });
+
+            // 마커에 마우스아웃 이벤트를 등록합니다
+            daum.maps.event.addListener(marker, 'mouseout', function() {
+                // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+                infowindow.close();
+            });
+
+    })(positions[i]);
+
+
+
+}
+
+
+
+    </script>
+
+<!-- 마커 클러스터러 사용하기 -->
+<script>
+// 마커 클러스터러를 생성합니다
+var clusterer = new daum.maps.MarkerClusterer({
+    map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+    averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+    minLevel: 10 // 클러스터 할 최소 지도 레벨
+});
+
+// 데이터를 가져오기 위해 jQuery를 사용합니다
+// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
+$.get("/download/web/data/chicken.json", function(data) {
+    // 데이터에서 좌표 값을 가지고 마커를 표시합니다
+    // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
+    var markers = $(data.positions).map(function(i, position) {
+        return new daum.maps.Marker({
+            position : new daum.maps.LatLng(position.lat, position.lng)
+        });
+    });
+
+    // 클러스터러에 마커들을 추가합니다
+    clusterer.addMarkers(markers);
+});
+</script>
+
+    <!-- jQuery -->
+    <!--<script src="/static/vendor/jquery/jquery.min.js"></script>-->
+    <!--<script src="/static/jquery.js"></script>-->
+    <!--&lt;!&ndash; Bootstrap Core JavaScript &ndash;&gt;-->
+    <!--<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>-->
+
+    <!--&lt;!&ndash; Contact Form JavaScript &ndash;&gt;-->
+    <!--<script src="/static/js/jqBootstrapValidation.js"></script>-->
+    <!--<script src="/static/js/contact_me.js"></script>-->
+
+    <!--&lt;!&ndash; Theme JavaScript &ndash;&gt;-->
+    <!--<script src="/static/js/clean-blog.min.js"></script>-->
+    <!--<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>-->
+     <!--<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'>-->
+  </body>
+
+</html>
